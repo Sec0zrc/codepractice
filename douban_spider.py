@@ -20,7 +20,7 @@ def scrap_douban(urlpath, start, file, regobj):
         year = item.group("year").strip()
         rating = item.group("rating")
         number = item.group("number")
-        file.write(f"{name},{director},{year},{rating},{number}\n")
+        file.write(f"{name}, {director}, {year}, {rating}, {number}\n")
     resp.close()
     pass
 
