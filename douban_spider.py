@@ -40,5 +40,3 @@ if __name__ == "__main__":
 
     f.close()
     print("网页内容爬取完毕")
-
-

@@ -21,7 +21,8 @@ def post():
     print(req_post.json())
     pass
 
-#send a post request to Baidu Translate
+
+# send a post request to Baidu Translate
 def post_baidu():
     url = "https://fanyi.baidu.com/sug"
     data = {
@@ -31,8 +32,9 @@ def post_baidu():
     #     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 \
     #                         (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36"
     # }
-    response = requests.post(url,data=data)
+    response = requests.post(url, data=data)
     return response
+
 
 def header():
     # set header
@@ -49,28 +51,29 @@ def header():
 def use_urlopen():
     url = "http://www.baidu.com"
     response = urlopen(url)
-    #print(response.read().decode("utf-8"))
+    # print(response.read().decode("utf-8"))
     return response
+
 
 def get_douban():
     url = "https://movie.douban.com/j/chart/top_list"
     params = {
         'type': '13',
         'interval_id': '100:90',
-        'action':'',
+        'action': '',
         'start': '0',
         'limit': '20'
     }
     header = {
-        "user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
     }
-    response = requests.get(url,params=params,headers=header)
+    response = requests.get(url, params=params, headers=header)
     print(response.json())
 
 
 if __name__ == "__main__":
     # get()
-    #post()
+    # post()
     # header()
     # res = use_urlopen()
     # with open("baidu.html",mode="w",encoding="utf-8") as f:
