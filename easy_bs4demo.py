@@ -27,6 +27,33 @@ def get_childpage(url_path):
     return childpage_url
 
 
+def test_bs4():
+    html = """
+        <html><head><title>The Dormouse's story</title></head>
+    <body>
+    <p class="title"><b>The Dormouse's story</b></p>
+
+    <p class="story">Once upon a time there were three little sisters; and their names were
+    <a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>,
+    <a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> and
+    <a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>;
+    and they lived at the bottom of a well.</p>
+
+    <p class="story">...</p>
+    """
+    # 指定解析器
+    soup = BeautifulSoup(html, "html.parser")
+    # 获取指定属性值的标签
+    a = soup.find("a", attrs={"id": "link1"})
+    # 获取所有a标签
+    a_list = soup.find_all("a")
+    print(a_list)
+    # 获取标签属性值
+    href = a.get("href")
+    # 获取标签文本内容
+    text = a.get_text()
+
+
 def getinfo(url_list, file):
     domain = "https://www.dytt8.com"
     for i in url_list:
@@ -44,10 +71,11 @@ def getinfo(url_list, file):
 
 
 if __name__ == "__main__":
-    url = "https://www.dytt8.com/"
-    # skip the first url
-    childpages_url = get_childpage(url)[1:]
-    f = open("dianyin.csv", "w", encoding="utf-8")
-    getinfo(childpages_url, f)
-    f.close()
-    print("网页爬取完毕")
+    # url = "https://www.dytt8.com/"
+    # # skip the first url
+    # childpages_url = get_childpage(url)[1:]
+    # f = open("dianyin.csv", "w", encoding="utf-8")
+    # getinfo(childpages_url, f)
+    # f.close()
+    # print("网页爬取完毕")
+    test_bs4()
